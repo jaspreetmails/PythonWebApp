@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Office Visitor Log App using Python</title>
+
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="shortcut icon" href="https://www.ucsc-extension.edu/sites/default/files/ucscx-favicon.png" type="image/png">
+
+<body>
+<div class="container">
+<div class="header">
+    <nav>
+        <ul class="nav nav-pills pull-right">
+            <li role="presentation" ><a href="/">Home</a>
+            </li>
+            <li role="presentation" class="active" ><a href="#"> Records</a>
+            </li>
+        </ul>
+    </nav>
+    <h3 class="text-muted">Records of the previous visitors</h3>
+</div>
+
+    <table class="table" style="border: 1px solid grey">
+
+        <tr>
+            <th> Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Met with</th>
+            <th>Purpose</th>
+            <th>Date</th>
+            <th>Time</th>
+        </tr>
+
+        {% for message in items %}
+
+        <tr>
+            <td> {{message[0]}}</td>
+            <td class="truncate"> {{message[1]}}</td>
+            <td> {{message[2]}}</td>
+            <td> {{message[3]}}</td>
+            <td> {{message[4]}}</td>
+            <td> {{message[5]}}</td>
+            <td> {{message[6]}}</td>
+        </tr>
+
+        {% endfor %}
+    </table>
+<br>
+    <button style="margin-left: 50%" type="submit" class="btn"><a href="export"</a>
+        Save Records</button>
+
+ <br>
+        
+    {% if message %}
+
+   
+    <div class="alert alert-info">
+        <strong>Success! </strong> {{ message }}
+    </div>
+    
+    {% endif %}
+    
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+.image-class{
+    height: 48px;
+    width: 48px;
+    margin-left: 25%;
+}
+
+.footer-wrapper{
+    width:100%;
+    dispaly:flex;
+    flex-wrap: wrap;
+    float:left;
+}
+
+.flex-container {
+    float: right;
+    display: -webkit-flex;
+    display: flex;
+    margin-top: -1.5%;
+
+
+}
+
+.flex-item {
+
+
+}
+
+.truncate {
+    width: 25px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

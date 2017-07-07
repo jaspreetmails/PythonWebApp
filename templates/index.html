@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+    <title>Office Visitor Log App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="shortcut icon" href="https://www.ucsc-extension.edu/sites/default/files/ucscx-favicon.png" type="image/png">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a href="#">Home</a>
+                    </li>
+
+                    <li role="presentation"><a href="showRecords">Show Records</a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="text-muted" style="visibility: hidden ">hello</h3>
+            <hr/>
+        </div>
+
+        <h2>Office Visitor Log</h2>
+        <div class="jumbotron" style="padding-bottom: 5px; padding-top: 5px">
+
+            <p>This application will help track and log information of visitors. Once the form is submitted with valid data
+                all the details will be stored in the database and can be retrieved any time (show records).
+            </p>
+        </div>
+        <form action="" method="post" role="form">
+            {{ form.csrf }}
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required placeholder="What's your name?">
+                <br>
+                <label for="email">Email:</label>
+                <input type="text" class="form-control" id="email" name="email" required placeholder="abc@xyz.com">
+
+                <br>
+                <label for="phone">Phone:</label>
+                <input type="phone" class="form-control" name='phone' required id="phone" placeholder="123456789">
+
+                <br>
+                <label for="person">You are here to meet:</label>
+                <input type="text" class="form-control" name="person" required id="person">
+                <br>
+                <label for="purpose">Purpose of the visit:</label>
+                <input type="text" class="form-control" name="purpose" required id="purpose">
+
+                <br>
+
+                <label class="control-label" for="pdate">Date</label>
+                <input class="form-control" id="pdate" name="pdate" required placeholder="MM/DD/YYY" type="text" />
+
+                <br>
+                <label class="control-label" for="intime">Time</label>
+                <input type="text" class="form-control" id="inTime" required name="intime" placeholder="HH:MM AM/PM">
+
+            </div>
+            <button style="margin-left: 50%" type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <br> {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for message in messages
+        %} {% if "Error" not in message[1]: %}
+        <div class="alert alert-info">
+            <strong>Success! </strong> {{ message[1] }}
+        </div>
+        {% endif %} {% if "Error" in message[1]: %}
+        <div class="alert alert-warning">
+            {{ message[1] }}
+        </div>
+        {% endif %} {% endfor %} {% endif %} {% endwith %}
+
+        <hr/>
+        <footer class="footer">
+
+            <div>&copy; UCSC Silicon Valley Extension, Santa Clara</div>
+            <div style="margin-left:82%; margin-top: -2%%">Developed by : </div>
+            <hr style="margin-left:70%; margin-top: 0%" />
+            <div style="float: right; display: flex; margin-top: -1.5%;">
+
+                <div class="flex-item">
+                    <p>jaspreet</p>
+
+                    
+                <div class="flex-item"><img style="height: 48px;width: 48px; margin-left: 25%;"  /></div>
+            </div>
+        </footer>
+    </div>
+   
+    
+</body>
+
+</html>
